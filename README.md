@@ -1,6 +1,8 @@
 # TinyMoisture - Soil Moisture Monitor based on ATtiny13A
 TinyMoisture monitors the soil moisture of your plants and gives an alarm if you forget to water them again.
 
+- Project Files (EasyEDA): https://easyeda.com/wagiminator/attiny13-tinymoisture
+
 ![pic1.jpg](https://github.com/wagiminator/ATtiny13-TinyMoisture/blob/main/documentation/TinyMoisture_pic1.jpg)
 ![pic2.jpg](https://github.com/wagiminator/ATtiny13-TinyMoisture/blob/main/documentation/TinyMoisture_pic2.jpg)
 
