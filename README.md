@@ -5,7 +5,7 @@ TinyMoisture monitors the soil moisture of your plants and gives an alarm if you
 ![pic2.jpg](https://github.com/wagiminator/ATtiny13-TinyMoisture/blob/main/documentation/TinyMoisture_pic2.jpg)
 
 # Hardware
-TinyMoisture uses the resistance measurement method to determine the soil moisture. The two electrodes together with the substrate form a variable resistor. The more humid the soil, the better its conductivity and the lower the electrical resistance. Together with the 10k fixed resistor, a voltage divider is formed. This voltage can be measured by the ADC of the microcontroller. The circuit is based on the [SparkFun Soil Moisture Sensor](https://www.sparkfun.com/products/13322).
+TinyMoisture uses the resistance measurement method to determine the soil moisture. The two probes together with the substrate form a variable resistor. The more humid the soil, the better its conductivity and the lower the electrical resistance. Together with the 10k fixed resistor, a voltage divider is formed. This voltage can be measured by the ADC of the microcontroller. The circuit is based on the [SparkFun Soil Moisture Sensor](https://www.sparkfun.com/products/13322).
 
 ![wiring.png](https://github.com/wagiminator/ATtiny13-TinyMoisture/blob/main/documentation/TinyMoisture_wiring.png)
 
@@ -15,7 +15,7 @@ The ATtiny13 spends most of its time in sleep mode. Every eight seconds it is wo
 
 The ATtiny can also be woken up by pressing the TEST button (pin change interrupt). An acoustic and optical signal is then output first so that the user can determine whether the battery is still supplying sufficient power. Then measurements of the soil moisture are carried out until the button is released again. In this way, the correct threshold value can be found and set by turning the poti.
 
-The ATtiny is clocked with only 128 kHz and all unused peripherals are switched off so that the power consumption is as low as possible.
+To avoid corrosion of the electrodes as far as possible, a voltage is only applied during the measurement. The ATtiny is clocked with only 128 kHz and all unused peripherals are switched off so that the power consumption is as low as possible.
 
 ```c
 // main function
@@ -92,7 +92,7 @@ Since there is no ICSP header on the board, you have to program the ATtiny eithe
 - Run "make install" to compile, burn the fuses and upload the firmware.
 
 # Operating Instructions
-Put the TinyMoisture deep enough into the earth that the two electrodes are just completely covered by earth. The device measures the soil moisture every eight seconds and gives a short alarm if the soil is too dry.
+Put the TinyMoisture deep enough into the earth that the two probes are just completely covered by earth. The device measures the soil moisture every eight seconds and gives a short alarm if the soil is too dry.
 
 Pressing the test button always gives at least one short alarm. This can be used to check that the battery has sufficient charge and that the device is working properly. If the ground is too dry, the alarm remains on as long as the test button is held down.
 
