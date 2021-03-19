@@ -3,13 +3,13 @@ TinyMoisture monitors the soil moisture of your plants and gives an alarm if you
 
 - Project Files (EasyEDA): https://easyeda.com/wagiminator/attiny13-tinymoisture
 
-![pic1.jpg](https://github.com/wagiminator/ATtiny13-TinyMoisture/blob/main/documentation/TinyMoisture_pic1.jpg)
-![pic2.jpg](https://github.com/wagiminator/ATtiny13-TinyMoisture/blob/main/documentation/TinyMoisture_pic2.jpg)
+![pic1.jpg](https://raw.githubusercontent.com/wagiminator/ATtiny13-TinyMoisture/main/documentation/TinyMoisture_pic1.jpg)
+![pic2.jpg](https://raw.githubusercontent.com/wagiminator/ATtiny13-TinyMoisture/main/documentation/TinyMoisture_pic2.jpg)
 
 # Hardware
 TinyMoisture uses the resistance measurement method to determine the soil moisture. The two probes together with the substrate form a variable resistor. The more humid the soil, the better its conductivity and the lower the electrical resistance. Together with the 10k fixed resistor, a voltage divider is formed. This voltage can be measured by the ADC of the microcontroller. The circuit is based on the [SparkFun Soil Moisture Sensor](https://www.sparkfun.com/products/13322).
 
-![wiring.png](https://github.com/wagiminator/ATtiny13-TinyMoisture/blob/main/documentation/TinyMoisture_wiring.png)
+![wiring.png](https://raw.githubusercontent.com/wagiminator/ATtiny13-TinyMoisture/main/documentation/TinyMoisture_wiring.png)
 
 # Software
 ## Implementation
@@ -100,4 +100,4 @@ Pressing the test button always gives at least one short alarm. This can be used
 
 To calibrate the TinyMoisture it should be placed in soil that is just too dry. Press and hold the TEST button. Turn the calibration potentiometer until the alarm is just triggered. Release the TEST button.
 
-![pic3.jpg](https://github.com/wagiminator/ATtiny13-TinyMoisture/blob/main/documentation/TinyMoisture_pic3.jpg)
+![pic3.jpg](https://raw.githubusercontent.com/wagiminator/ATtiny13-TinyMoisture/main/documentation/TinyMoisture_pic3.jpg)
