@@ -20,27 +20,27 @@ The ATtiny can also be woken up by pressing the TEST button (pin change interrup
 To avoid corrosion of the electrodes as far as possible, a voltage is only applied during the measurement. The ATtiny is clocked with only 128 kHz and all unused peripherals are switched off so that the power consumption is as low as possible.
 
 ```c
-// main function
+// Main function
 int main(void) {
-  // reset watchdog timer
+  // Reset watchdog timer
   resetWatchdog();                        // do this first in case WDT fires
 
-  // setup pins
+  // Setup pins
   DDRB  = (1<<PE_PIN)|(1<<AL_PIN);        // set output pins
   PORTB = (1<<TB_PIN);                    // set pull-ups
 
-  // disable unused peripherals and set sleep mode to save power
+  // Disable unused peripherals and set sleep mode to save power
   ACSR   = (1<<ACD);                      // disable analog comperator
   DIDR0 |= (1<<MS_PIN)|(1<<CA_PIN);       // disable digital intput buffer on ADC pins
   PRR    = (1<<PRTIM0);                   // shut down timer0
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);    // set sleep mode to power down
 
-  // setup pin change interrupt
+  // Setup pin change interrupt
   GIMSK = (1<<PCIE);                      // pin change interrupts enable
   PCMSK = (1<<TB_PIN);                    // set pins for pin change interrupt
   sei();                                  // enable global interrupts
 
-  // main loop
+  // Loop
   while(1) {
     if (~PINB & (1<<TB_PIN)) beep();      // alarm if test button is pressed
 
@@ -48,8 +48,8 @@ int main(void) {
     PORTB  |=  (1<<PE_PIN);               // power measurement circuit
     _delay_us(125);                       // give it all a little time
 
-    do {     
-      if (readADC(MS_ADC) < (readADC(CA_ADC)>>1)) beep();  // beep if dry soil    
+    do {
+      if (readADC(MS_ADC) < (readADC(CA_ADC)>>1)) beep();  // beep if dry soil
     } while(~PINB & (1<<TB_PIN));         // repeat if test button is hold
 
     PORTB  &= ~(1<<PE_PIN);               // power off to prevent corrosion
@@ -82,7 +82,7 @@ Since there is no ICSP header on the board, you have to program the ATtiny eithe
 - Navigate to the folder with the hex-file.
 - Execute the following command (if necessary replace "usbasp" with the programmer you use):
   ```
-  avrdude -c usbasp -p t13 -U lfuse:w:0x3b:m -U hfuse:w:0xff:m -U flash:w:main.hex
+  avrdude -c usbasp -p t13 -U lfuse:w:0x3b:m -U hfuse:w:0xff:m -U flash:w:tinymoisture.hex
   ```
 
 ### If using the makefile (Linux/Mac)
@@ -90,7 +90,7 @@ Since there is no ICSP header on the board, you have to program the ATtiny eithe
 - Connect your programmer to your PC and to the ATtiny.
 - Open the makefile and change the programmer if you are not using usbasp.
 - Open a terminal.
-- Navigate to the folder with the makefile and main.c.
+- Navigate to the folder with the makefile and sketch.
 - Run "make install" to compile, burn the fuses and upload the firmware.
 
 # Operating Instructions
