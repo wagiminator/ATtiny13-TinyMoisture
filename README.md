@@ -88,10 +88,9 @@ Since there is no ICSP header on the board, you have to program the ATtiny eithe
 ### If using the makefile (Linux/Mac)
 - Make sure you have installed [avr-gcc toolchain and avrdude](http://maxembedded.com/2015/06/setting-up-avr-gcc-toolchain-on-linux-and-mac-os-x/).
 - Connect your programmer to your PC and to the ATtiny.
-- Open the makefile and change the programmer if you are not using usbasp.
 - Open a terminal.
 - Navigate to the folder with the makefile and sketch.
-- Run "make install" to compile, burn the fuses and upload the firmware.
+- Run `PROGRMR=usbasp make install` to compile, burn the fuses and upload the firmware (change PROGRMR accordingly).
 
 # Operating Instructions
 Put the TinyMoisture deep enough into the earth that the two probes are just completely covered by earth. The device measures the soil moisture every eight seconds and gives a short alarm if the soil is too dry.
